@@ -1,6 +1,6 @@
 {
   "name": "@vaerone/stateiq",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "⚡ Lightweight React hooks for predictable and performant state updates powered by smart equality checks to minimize re-renders.",
   "keywords": [
     "react",

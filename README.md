@@ -3,6 +3,7 @@
 ⚡ Lightweight React hooks for predictable and performant state updates powered by smart equality checks to minimize re-renders.
 
 [![MIT License](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
+![size](https://img.shields.io/bundlephobia/minzip/@vaerone/stateiq)
 [![Bugs](https://sonarcloud.io/api/project_badges/measure?project=vaerone_stateiq&metric=bugs)](https://sonarcloud.io/summary/new_code?id=vaerone_stateiq)
 [![Coverage](https://sonarcloud.io/api/project_badges/measure?project=vaerone_stateiq&metric=coverage)](https://sonarcloud.io/summary/new_code?id=vaerone_stateiq)
 [![Technical Debt](https://sonarcloud.io/api/project_badges/measure?project=vaerone_stateiq&metric=sqale_index)](https://sonarcloud.io/summary/new_code?id=vaerone_stateiq)
@@ -181,6 +182,17 @@ Note: If you need deep comparison, use useDeepEqualState instead it internally h
 - **Returns**: The **previous deeply equal** , retained only if it is deeply equal to the current one.
 - **Behavior**: Stores and compares with the previous value using deep structural comparison.
 - **Use Case**: For comparing past and current values without triggering updates due to reference changes alone.
+
+---
+
+## Development Setup
+
+To enable Git hooks:
+
+```bash
+npm install
+npx husky install
+```
 
 ---
 

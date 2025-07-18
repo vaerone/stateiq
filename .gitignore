@@ -1,0 +1,10 @@
+node_modules
+dist
+*.log
+
+# Vitest or testing coverage reports
+coverage/
+
+.DS_Store
+.vscode/
+.sonarlint/

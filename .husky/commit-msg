@@ -1,0 +1,33 @@
+#!/usr/bin/env bash
+. "$(dirname -- "$0")/_/husky.sh"
+. "$(dirname -- "$0")/husky-utils.sh"
+
+msg=$(cat "$1")
+echo ""
+echo "[husky] Commit message hook engaged"
+echo "[info] Validating commit message: \"$msg\""
+echo ""
+
+if echo "$msg" | grep -Ei 'fix typo|wip|stuff' >/dev/null; then
+  echo "[warn] Suspiciously lazy commit message detected"
+  echo "[fun] Opening YouTube..."
+
+  case "$(uname)" in
+    Darwin*) open "https://www.youtube.com/watch?v=dQw4w9WgXcQ" ;;
+    Linux*)  xdg-open "https://www.youtube.com/watch?v=dQw4w9WgXcQ" ;;
+    CYGWIN*|MINGW*|MSYS*) start "https://www.youtube.com/watch?v=dQw4w9WgXcQ" ;;
+  esac
+
+  exit 1
+fi
+
+start_spinner "Running commitlint"
+tmp_out=$(mktemp)
+if [ "$VERBOSE" = true ]; then
+  npx --no -- commitlint --edit "$1" 2>&1 | tee "$tmp_out"
+else
+  npx --no -- commitlint --edit "$1" > "$tmp_out" 2>&1
+fi
+stop_spinner_with_output $? "Commit message valid" "Commit message failed" "$tmp_out" || exit 1
+
+echo "[done] Commit message check passed."

@@ -1,0 +1,93 @@
+{
+  "name": "@vaerone/stateiq",
+  "version": "0.0.0",
+  "description": "⚡ Lightweight React hooks for predictable and performant state updates powered by smart equality checks to minimize re-renders.",
+  "keywords": [
+    "react",
+    "state",
+    "hooks",
+    "shallow compare",
+    "deep compare",
+    "state management",
+    "performance"
+  ],
+  "main": "dist/index.cjs",
+  "module": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "exports": {
+    "import": "./dist/index.js",
+    "require": "./dist/index.cjs"
+  },
+  "author": "Ram Krishnan",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/vaerone/stateiq"
+  },
+  "bugs": {
+    "url": "https://github.com/vaerone/stateiq/issues"
+  },
+  "homepage": "https://github.com/vaerone/stateiq#readme",
+  "size-limit": [
+    {
+      "path": "dist/index.js",
+      "limit": "2 KB"
+    }
+  ],
+  "lint-staged": {
+    "*.{ts,tsx}": [
+      "eslint --fix",
+      "prettier --write"
+    ]
+  },
+  "config": {
+    "commitizen": {
+      "path": "./node_modules/cz-conventional-changelog"
+    }
+  },
+  "scripts": {
+    "dev": "tsup src/index.ts --watch",
+    "build": "tsup src/index.ts",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "lint": "eslint . --ext .ts,.tsx",
+    "format": "prettier --check .",
+    "size": "size-limit",
+    "release": "standard-version",
+    "postinstall": "husky install",
+    "commit": "cz",
+    "coverage": "vitest run --coverage"
+  },
+  "peerDependencies": {
+    "react": ">=17.0.0"
+  },
+  "devDependencies": {
+    "@commitlint/config-conventional": "^19.8.1",
+    "@eslint/js": "^9.30.1",
+    "@size-limit/preset-small-lib": "^11.2.0",
+    "@testing-library/jest-dom": "^6.6.3",
+    "@testing-library/react": "14.0.0",
+    "@testing-library/react-hooks": "7.0.2",
+    "@typescript-eslint/eslint-plugin": "^8.36.0",
+    "@typescript-eslint/parser": "^8.36.0",
+    "@vitest/coverage-v8": "^3.2.4",
+    "commitizen": "^4.3.1",
+    "commitlint": "^19.8.1",
+    "cz-conventional-changelog": "^3.3.0",
+    "eslint": "^9.30.1",
+    "globals": "^16.3.0",
+    "husky": "^8.0.0",
+    "jsdom": "^24.0.0",
+    "lint-staged": "^16.1.2",
+    "prettier": "^3.6.2",
+    "react": "18.2.0",
+    "react-dom": "18.2.0",
+    "size-limit": "^11.2.0",
+    "standard-version": "^9.5.0",
+    "tsup": "^7.0.0",
+    "typescript": "^5.8.3",
+    "typescript-eslint": "^8.36.0",
+    "vite": "^5.2.0",
+    "vitest": "^3.2.4"
+  }
+}

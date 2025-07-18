@@ -1,0 +1,40 @@
+#!/usr/bin/env bash
+. "$(dirname -- "$0")/_/husky.sh"
+. "$(dirname -- "$0")/husky-utils.sh"
+
+echo ""
+echo "[husky] Pre-push hook activated"
+echo "[info] Running coverage, build, and size checks..."
+echo ""
+
+# Step 1: Coverage
+start_spinner "Running test coverage"
+tmp_out=$(mktemp)
+if [ "$VERBOSE" = true ]; then
+  npm run coverage 2>&1 | tee "$tmp_out"
+else
+  npm run coverage > "$tmp_out" 2>&1
+fi
+stop_spinner_with_output $? "Coverage passed" "Coverage check failed" "$tmp_out" || exit 1
+
+# Step 2: Build
+start_spinner "Building the project"
+tmp_out=$(mktemp)
+if [ "$VERBOSE" = true ]; then
+  npm run build 2>&1 | tee "$tmp_out"
+else
+  npm run build > "$tmp_out" 2>&1
+fi
+stop_spinner_with_output $? "Build succeeded" "Build failed" "$tmp_out" || exit 1
+
+# Step 3: Size check
+start_spinner "Checking bundle size"
+tmp_out=$(mktemp)
+if [ "$VERBOSE" = true ]; then
+  npm run size 2>&1 | tee "$tmp_out"
+else
+  npm run size > "$tmp_out" 2>&1
+fi
+stop_spinner_with_output $? "Size check passed" "Size check failed" "$tmp_out" || exit 1
+
+echo "[done] All pre-push checks passed."

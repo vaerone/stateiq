@@ -1,5 +1,5 @@
 import { renderHook } from '@testing-library/react';
-import { useMemoShallowEqual } from './useMemoShallowEqual';
+import { useMemoShallowEqual } from '@/hooks/useMemoShallowEqual';
 
 describe('useMemoShallowEqual', () => {
   it('returns memoized value when shallowly equal', () => {

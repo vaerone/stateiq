@@ -1,18 +1,14 @@
 import { renderHook, act } from '@testing-library/react';
-import { useShallowEqualState } from './useShallowEqualState';
+import { useShallowEqualState } from '@/hooks/useShallowEqualState';
 
 describe('useShallowEqualState', () => {
   it('initializes with the given value', () => {
-    const { result } = renderHook(() =>
-      useShallowEqualState({ name: 'Ram', age: 30 })
-    );
+    const { result } = renderHook(() => useShallowEqualState({ name: 'Ram', age: 30 }));
     expect(result.current[0]).toEqual({ name: 'Ram', age: 30 });
   });
 
   it('updates state if not shallow equal', () => {
-    const { result } = renderHook(() =>
-      useShallowEqualState({ name: 'Ram', age: 30 })
-    );
+    const { result } = renderHook(() => useShallowEqualState({ name: 'Ram', age: 30 }));
 
     act(() => {
       result.current[1]({ name: 'Ram', age: 31 });
@@ -37,9 +33,7 @@ describe('useShallowEqualState', () => {
   });
 
   it('accepts a function to update state', () => {
-    const { result } = renderHook(() =>
-      useShallowEqualState({ count: 0, label: 'counter' })
-    );
+    const { result } = renderHook(() => useShallowEqualState({ count: 0, label: 'counter' }));
 
     act(() => {
       result.current[1]((prev) => ({ ...prev, count: prev.count + 1 }));

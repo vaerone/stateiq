@@ -1,5 +1,5 @@
 import { renderHook, act } from '@testing-library/react-hooks';
-import { useDeepEqualState } from './useDeepEqualState';
+import { useDeepEqualState } from '@/hooks/useDeepEqualState';
 
 describe('useDeepEqualState', () => {
   it('initializes with the given value', () => {

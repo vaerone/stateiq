@@ -1,4 +1,4 @@
-import { shallowEqualSafe } from './shallowEqual';
+import { shallowEqualSafe } from '@/utils/__internal__/shallowEqual';
 
 describe('shallowEqualSafe', () => {
   it('returns true for the same reference', () => {

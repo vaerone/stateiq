@@ -1,5 +1,5 @@
 import { renderHook } from '@testing-library/react';
-import { useMemoDeepEqual } from './useMemoDeepEqual';
+import { useMemoDeepEqual } from '@/hooks/useMemoDeepEqual';
 
 describe('useMemoDeepEqual', () => {
   it('returns memoized value when deeply equal', () => {

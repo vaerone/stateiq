@@ -1,14 +1,17 @@
 import { useRef, useEffect } from 'react';
 import { deepEqual } from '@internal/deepEqual';
+import { structuralShare } from '@internal/structuralShare';
+import { StructuralSharingOptions } from '@internal/types';
 
-export function usePreviousDeepEqual<T>(value: T): T | undefined {
+export function usePreviousDeepEqual<T>(value: T, options?: StructuralSharingOptions): T | undefined {
   const ref = useRef<T>();
+  const prev = ref.current;
 
   useEffect(() => {
-    if (!deepEqual(ref.current, value)) {
-      ref.current = value;
+    if (!deepEqual(prev, value)) {
+      ref.current = options?.structuralSharing ? structuralShare(prev as T, value) : value;
     }
-  }, [value]);
+  }, [value, options?.structuralSharing]);
 
-  return ref.current;
+  return prev;
 }

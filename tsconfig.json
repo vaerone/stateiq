@@ -11,7 +11,8 @@
     "skipLibCheck": true,
     "baseUrl": ".",
     "paths": {
-      "@/*": ["src/*"]
+      "@stateiq/*": ["src/*"],
+      "@internal/*": ["src/utils/__internal__/*"]
     }
   },
   "include": ["src"]

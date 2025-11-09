@@ -1,5 +1,5 @@
 import { useRef, useEffect } from 'react';
-import { deepEqual } from '@/utils/__internal__/deepEqual';
+import { deepEqual } from '@internal/deepEqual';
 
 export function usePreviousDeepEqual<T>(value: T): T | undefined {
   const ref = useRef<T>();

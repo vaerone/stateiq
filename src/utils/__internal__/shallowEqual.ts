@@ -1,4 +1,4 @@
-import { isObject } from '@/utils/__internal__/isObject';
+import { isObject } from '@internal/isObject';
 
 export function shallowEqual<T extends Record<PropertyKey, unknown>>(objA: T, objB: T): boolean {
   if (Object.is(objA, objB)) return true;

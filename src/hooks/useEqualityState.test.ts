@@ -1,5 +1,5 @@
 import { renderHook, act } from '@testing-library/react';
-import { useEqualityState } from '@/hooks/useEqualityState';
+import { useEqualityState } from '@stateiq/hooks/useEqualityState';
 
 describe('useEqualityState', () => {
   it('returns initial state', () => {

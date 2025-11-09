@@ -4,7 +4,8 @@ import path from 'path';
 export default defineConfig({
   resolve: {
     alias: {
-      '@': path.resolve(__dirname, './src'),
+      '@stateiq': path.resolve(__dirname, './src'),
+      '@internal': path.resolve(__dirname, './src/utils/__internal__'),
     },
   },
   test: {

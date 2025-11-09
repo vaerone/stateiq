@@ -1,4 +1,4 @@
-import { deepEqual } from '@/utils/__internal__/deepEqual';
+import { deepEqual } from '@internal/deepEqual';
 
 describe('deepEqual', () => {
   describe('Primitive values', () => {

@@ -1,4 +1,4 @@
-import { isObject } from '@/utils/__internal__/isObject';
+import { isObject } from '@internal/isObject';
 
 export function deepEqual(a: unknown, b: unknown, seen = new WeakMap<object, object>()): boolean {
   if (Object.is(a, b)) return true;

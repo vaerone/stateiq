@@ -1,5 +1,5 @@
 import { useState, useCallback } from 'react';
-import { deepEqual } from '@/utils/__internal__/deepEqual';
+import { deepEqual } from '@internal/deepEqual';
 
 function isUpdater<T>(value: unknown): value is (prev: T) => T {
   return typeof value === 'function';

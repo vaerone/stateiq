@@ -1,5 +1,5 @@
 import { useState, useCallback } from 'react';
-import { shallowEqualSafe } from '@/utils/__internal__/shallowEqual';
+import { shallowEqualSafe } from '@internal/shallowEqual';
 
 function isUpdater<T>(value: unknown): value is (prev: T) => T {
   return typeof value === 'function';

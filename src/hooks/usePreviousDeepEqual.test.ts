@@ -1,5 +1,5 @@
 import { renderHook } from '@testing-library/react';
-import { usePreviousDeepEqual } from '@/hooks/usePreviousDeepEqual';
+import { usePreviousDeepEqual } from '@stateiq/hooks/usePreviousDeepEqual';
 
 describe('usePreviousDeepEqual', () => {
   it('returns undefined initially', () => {
